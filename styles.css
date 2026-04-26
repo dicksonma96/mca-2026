@@ -1,0 +1,411 @@
+.mca_2026 {
+    --bg-dark: #120907;
+    --bg-card: #1a110f;
+    --gold-primary: #d4af37;
+    --gold-secondary: #f9d423;
+    --gold-sidebar: #c5a02e;
+    --text-white: #ffffff;
+    --text-muted: #b0a4a0;
+    --red-carpet: #8b0000;
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Inter', sans-serif;
+    --container-width: 1200px;
+
+    background-color: var(--bg-dark);
+    color: var(--text-white);
+    font-family: var(--font-body);
+    line-height: 1.6;
+    overflow-x: hidden;
+    display:flex;
+    flex-direction: column;
+}
+
+.mca_2026 * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.mca_2026 .container {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.mca_2026 .section {
+    padding: 80px 0;
+}
+
+.mca_2026 .eyebrow {
+    display: block;
+    color: var(--gold-primary);
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.mca_2026 h2 {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.mca_2026 p {
+    color: var(--text-muted);
+    font-size: 1rem;
+    max-width: 700px;
+}
+
+.mca_2026 .divider {
+    border: 0;
+    border-top: 1px solid rgba(212, 175, 55, 0.2);
+    margin: 40px auto;
+    width: 60%;
+}
+
+/* Hero Section */
+.mca_2026 .hero {
+    width: 100%;
+    max-width: 1200px;
+    margin:0 auto;
+}
+
+
+
+.mca_2026 .btn-vote {
+    display: inline-block;
+    background-color: var(--gold-secondary);
+    color: #000;
+    padding: 15px 40px;
+    font-weight: 700;
+    text-decoration: none;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.mca_2026 .btn-vote:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(249, 212, 35, 0.3);
+}
+
+.mca_2026 .red-carpet-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 30%;
+    background: linear-gradient(to top, var(--red-carpet), transparent);
+    opacity: 0.4;
+    z-index: 1;
+}
+
+/* Content Sections */
+.mca_2026 .section-header {
+    display: flex;
+    flex-direction: column;
+}
+
+.mca_2026 .view-all {
+    color: var(--gold-primary);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.mca_2026 .video-placeholder {
+    width: 100%;
+    aspect-ratio: 16/9;
+    background: #2a1a15;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    border: 1px solid rgba(212, 175, 55, 0.1);
+}
+
+.mca_2026 .play-button {
+    width: 80px;
+    height: 80px;
+    background: rgba(212, 175, 55, 0.8);
+    border-radius: 50%;
+    position: relative;
+}
+
+.mca_2026 .play-button::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 55%;
+    transform: translate(-50%, -50%);
+    border-style: solid;
+    border-width: 15px 0 15px 25px;
+    border-color: transparent transparent transparent white;
+}
+
+/* Swiper Customization */
+.mca_2026 .swiper {
+    width: 100%;
+    padding-bottom: 40px !important;
+}
+
+.mca_2026 .swiper-button-next,
+.mca_2026 .swiper-button-prev {
+    color: var(--gold-secondary) !important;
+    background: rgba(0,0,0,0.5);
+    width: 40px !important;
+    height: 40px !important;
+    border-radius: 50%;
+}
+
+.mca_2026 .swiper-button-next:after,
+.mca_2026 .swiper-button-prev:after {
+    font-size: 1.2rem !important;
+    font-weight: bold;
+}
+
+@media (max-width: 768px) {
+    .mca_2026 .swiper-button-next,
+    .mca_2026 .swiper-button-prev {
+        display: none !important;
+    }
+}
+
+/* Gallery Carousel */
+.mca_2026 .img-placeholder {
+    width: 100%;
+    aspect-ratio: 4/3;
+    background: #2a1a15;
+    border-radius: 4px;
+}
+
+/* SuperMoms Carousel */
+.mca_2026 .section-header-centered {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.mca_2026 .section-header-centered p {
+    margin: 0 auto;
+}
+
+.mca_2026 .mom-card {
+    text-align: center;
+    width: 100%;
+}
+
+.mca_2026 .mom-avatar {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    background: #2a1a15;
+    margin: 0 auto 15px;
+    border: 3px solid var(--gold-primary);
+}
+
+.mca_2026 .mom-card h3 {
+    font-family: var(--font-heading);
+    margin-bottom: 5px;
+}
+
+.mca_2026 .mom-card span {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+/* Winner's Circle */
+.mca_2026 .winners-layout {
+    display: flex;
+    gap: 40px;
+    margin-top: 40px;
+}
+
+.mca_2026 .winners-sidebar {
+    flex: 0 0 250px;
+}
+
+.mca_2026 .winners-sidebar ul {
+    list-style: none;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.mca_2026 .winners-sidebar li {
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+    transition: background 0.3s;
+}
+
+.mca_2026 .winners-sidebar li:last-child {
+    border-bottom: none;
+}
+
+.mca_2026 .winners-sidebar li.active {
+    background-color: var(--gold-secondary);
+    color: #000;
+    font-weight: 700;
+}
+
+.mca_2026 .winners-sidebar li:hover:not(.active) {
+    background-color: rgba(212, 175, 55, 0.1);
+}
+
+.mca_2026 .winners-content {
+    flex: 1;
+    background: var(--bg-card);
+    padding: 30px;
+    border-radius: 12px;
+}
+
+.mca_2026 .winners-content h3 {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    margin-bottom: 30px;
+}
+
+.mca_2026 .product-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.mca_2026 .product-card {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    background: rgba(0,0,0,0.2);
+    border-radius: 8px;
+    border: 1px solid rgba(212, 175, 55, 0.05);
+}
+
+.mca_2026 .product-img {
+    width: 150px;
+    height: 150px;
+    background: #2a1a15;
+    border-radius: 4px;
+    flex-shrink: 0;
+}
+
+.mca_2026 .product-info h4 {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+    color: var(--gold-primary);
+}
+
+.mca_2026 .product-info p {
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+}
+
+.mca_2026 .btn-details {
+    display: inline-block;
+    padding: 8px 20px;
+    border: 1px solid var(--gold-primary);
+    color: var(--gold-primary);
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.mca_2026 .btn-vote-small {
+    display: inline-block;
+    padding: 8px 20px;
+    background: var(--gold-secondary);
+    color: #000;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    font-weight: 700;
+}
+
+/* Footer */
+.mca_2026 .footer {
+    padding: 60px 0;
+    background-color: #0d0705;
+    text-align: center;
+    border-top: 1px solid rgba(212, 175, 55, 0.1);
+}
+
+.mca_2026 .footer h3 {
+    font-family: var(--font-heading);
+    margin-bottom: 30px;
+}
+
+.mca_2026 .awards-years {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+}
+
+.mca_2026 .awards-years a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+.mca_2026 .awards-years a:hover {
+    color: var(--gold-primary);
+}
+
+/* Responsiveness */
+@media (max-width: 992px) {
+    .mca_2026 .img-placeholder {
+        flex: 0 0 calc(50% - 14px);
+    }
+    
+    .mca_2026 .winners-layout {
+        flex-direction: column;
+    }
+    
+    .mca_2026 .winners-sidebar {
+        flex: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .mca_2026 .section {
+        padding: 50px 0;
+    }
+
+    .mca_2026 h2 {
+        font-size: 2rem;
+    }
+
+    .mca_2026 .section-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .mca_2026 .img-placeholder {
+        flex: 0 0 85%;
+    }
+
+    .mca_2026 .mom-card {
+        min-width: 140px;
+    }
+
+    .mca_2026 .product-card {
+        flex-direction: column;
+    }
+
+    .mca_2026 .product-img {
+        width: 100%;
+        aspect-ratio: 1/1;
+    }
+
+    .mca_2026 .awards-years {
+        gap: 20px;
+    }
+}
