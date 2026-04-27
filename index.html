@@ -24,11 +24,15 @@
             <section class="section highlights">
                 <div class="container">
                     <div class="section-header">
-                        <span class="eyebrow">MOTHERHOOD CHOICE AWARDS 2025</span>
+                        <span class="eyebrow">MOTHERHOOD CHOICE AWARDS 2026</span>
                         <h2>Event Highlights</h2>
                     </div>
                     <div class="video-placeholder">
-                        <div class="play-button"></div>
+                        <iframe style="width: 100%; height: 100%;"
+                            src="https://www.youtube.com/embed/4mkAcSU5GF4?si=wXHkd-Y0o4p3Ruv8"
+                            title="YouTube video player" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                     </div>
                 </div>
             </section>
@@ -134,36 +138,12 @@
                 <div class="container">
                     <div class="section-header-centered">
                         <span class="eyebrow">INFLUENCING GENERATIONS</span>
-                        <h2>The Winner's Circle 2025</h2>
+                        <h2>The Winner's Circle 2026</h2>
                         <p>Discover the winners who have made a difference in the lives of mothers and their families.
                             Curated and picked by Mothers, for Mothers.</p>
                     </div>
 
                     <div class="winners-layout">
-                        <!-- Sidebar -->
-                        <aside class="winners-sidebar">
-                            <nav>
-                                <ul>
-                                    <li class="active">Milk <span>&rsaquo;</span></li>
-                                    <li>Diapers <span>&rsaquo;</span></li>
-                                    <li>Feeding <span>&rsaquo;</span></li>
-                                    <li>Baby Gear <span>&rsaquo;</span></li>
-                                    <li>Activity <span>&rsaquo;</span></li>
-                                    <li>Vitamins & Supplement <span>&rsaquo;</span></li>
-                                    <li>Maternity Care <span>&rsaquo;</span></li>
-                                    <li>Household Care <span>&rsaquo;</span></li>
-                                    <li>Body Care <span>&rsaquo;</span></li>
-                                    <li>Kids Care <span>&rsaquo;</span></li>
-                                    <li>Food & Beverages <span>&rsaquo;</span></li>
-                                    <li>Education <span>&rsaquo;</span></li>
-                                    <li>Family Services <span>&rsaquo;</span></li>
-                                    <li>Family Products <span>&rsaquo;</span></li>
-                                    <li>Family Entertainment <span>&rsaquo;</span></li>
-                                    <li>Everything <span>&rsaquo;</span></li>
-                                </ul>
-                            </nav>
-                        </aside>
-
                         <!-- Product Content -->
                         <div class="winners-content">
                             <h3>Milk</h3>
@@ -202,60 +182,184 @@
             </section>
         </main>
 
-        <!-- Footer -->
-        <footer class="footer">
+        <div class="footer">
             <div class="container">
                 <h3>Visit Motherhood Choice Awards In</h3>
                 <div class="awards-years">
-                    <a href="#">2024</a>
-                    <a href="#">2023</a>
-                    <a href="#">2022</a>
-                    <a href="#">2021</a>
+                    <a href="/motherhood-award-2025">2025</a>
+                    <a href="/motherhood-award-2024">2024</a>
+                    <a href="/motherhood-award-2023">2023</a>
+                    <a href="/motherhood-award-2022">2022</a>
+                    <a href="/motherhood-award-2021">2021</a>
                 </div>
             </div>
-        </footer>
+        </div>
+        <!-- Image Modal -->
+        <div id="imageModal" class="modal">
+            <span class="close-modal">&times;</span>
+            <img class="modal-content" id="modalImg">
+        </div>
     </div>
 
     <!-- Swiper JS -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // Gallery Carousel
-            new Swiper('.gallery-swiper', {
-                slidesPerView: 1.2,
-                spaceBetween: 20,
-                navigation: {
-                    nextEl: '.swiper-button-next',
-                    prevEl: '.swiper-button-prev',
-                },
-                breakpoints: {
-                    768: {
-                        slidesPerView: 2,
-                    },
-                    1024: {
-                        slidesPerView: 3,
-                    }
-                }
-            });
 
-            // SuperMoms Carousel
-            new Swiper('.moms-swiper', {
-                slidesPerView: 2.2,
-                spaceBetween: 30,
-                navigation: {
-                    nextEl: '.swiper-button-next',
-                    prevEl: '.swiper-button-prev',
-                },
-                breakpoints: {
-                    768: {
-                        slidesPerView: 4,
-                    },
-                    1024: {
-                        slidesPerView: 6,
-                    }
+    <script>
+        const gallery_api = "https://m.motherhood.com.my/api/event/mca/gallery";
+        const supermom_api = "https://m.motherhood.com.my/api/event/mca/supermom/kol"
+        const winner_api = "https://m.motherhood.com.my/api/event/mca/winner?year=2025"
+        fetch(gallery_api)
+            .then((res) => res.json())
+            .then((data) => {
+                const galleryWrapper = document.querySelector('.gallery-swiper .swiper-wrapper');
+                const galleryData = data.data[1]?.gallery || [];
+                if (galleryWrapper && galleryData.length > 0) {
+                    galleryWrapper.innerHTML = ''; // Clear placeholders
+
+                    galleryData.forEach(imgUrl => {
+                        const slide = document.createElement('div');
+                        slide.className = 'swiper-slide';
+                        slide.innerHTML = `<img src="${imgUrl}" alt="Gallery Image" class="gallery-image">`;
+                        galleryWrapper.appendChild(slide);
+                    });
+
+                    // Initialize Swiper after populating
+                    new Swiper('.gallery-swiper', {
+                        slidesPerView: 1.2,
+                        spaceBetween: 20,
+                        loop: true,
+                        navigation: {
+                            nextEl: '.swiper-button-next',
+                            prevEl: '.swiper-button-prev',
+                        },
+                        breakpoints: {
+                            768: { slidesPerView: 2 },
+                            1024: { slidesPerView: 3 }
+                        }
+                    });
+                }
+            })
+            .catch(err => console.error("Error fetching gallery:", err));
+
+
+        // Fetch SuperMoms
+        fetch(supermom_api)
+            .then((res) => res.json())
+            .then((data) => {
+                const supermom_data = data.data || [];
+                const momsWrapper = document.querySelector('.moms-swiper .swiper-wrapper');
+
+                if (momsWrapper && supermom_data.length > 0) {
+                    momsWrapper.innerHTML = ''; // Clear placeholders
+
+                    supermom_data.forEach(item => {
+                        const slide = document.createElement('div');
+                        slide.className = 'swiper-slide';
+                        slide.innerHTML = `
+                    <a href="${item.ig}" target="_blank" class="mom-card" style="text-decoration: none; color: inherit; display: block;">
+                        <div class="mom-avatar" style="background-image: url('${item.image}'); background-size: cover; background-position: center;"></div>
+                        <h3>${item.name}</h3>
+                        <span>Supermom</span>
+                    </a>
+                `;
+                        momsWrapper.appendChild(slide);
+                    });
+
+                    // Initialize Swiper after populating
+                    new Swiper('.moms-swiper', {
+                        slidesPerView: 2.2,
+                        spaceBetween: 30,
+                        navigation: {
+                            nextEl: '.swiper-button-next',
+                            prevEl: '.swiper-button-prev',
+                        },
+                        breakpoints: {
+                            768: { slidesPerView: 4 },
+                            1024: { slidesPerView: 6 }
+                        }
+                    });
+                }
+            })
+            .catch(err => console.error("Error fetching supermoms:", err));
+
+
+        // Fetch Winners
+        fetch(winner_api)
+            .then((res) => res.json())
+            .then((data) => {
+                const winners = data?.data.winners || [];
+                const winnersContent = document.querySelector('.winners-content');
+
+                if (winnersContent && winners.length > 0) {
+                    winnersContent.innerHTML = ''; // Clear placeholders
+
+                    // Group by main_cat
+                    const grouped = winners.reduce((acc, winner) => {
+                        const cat = winner.main_cat || 'Others';
+                        if (!acc[cat]) acc[cat] = [];
+                        acc[cat].push(winner);
+                        return acc;
+                    }, {});
+
+                    // Iterate through groups
+                    Object.entries(grouped).forEach(([cat, items]) => {
+                        const h3 = document.createElement('h3');
+                        h3.textContent = cat;
+                        h3.style.marginTop = '40px'; // Add space before each category except the first
+                        if (winnersContent.children.length === 0) h3.style.marginTop = '0';
+
+                        winnersContent.appendChild(h3);
+
+                        const productList = document.createElement('div');
+                        productList.className = 'product-list';
+
+                        items.forEach(winner => {
+                            const productCard = document.createElement('div');
+                            productCard.className = 'product-card';
+                            productCard.innerHTML = `
+                                <img src="${winner.img_url}" alt="${winner.name}" class="product-img" style="object-fit: cover;">
+                                <div class="product-info">
+                                    <h4>${winner.sub_cat}</h4>
+                                    <p>${winner.name}</p>
+                                    <a href="${winner.action_url}" target="_blank" class="btn-details">See Details</a>
+                                </div>
+                            `;
+                            productList.appendChild(productCard);
+                        });
+
+                        winnersContent.appendChild(productList);
+                    });
+                }
+            })
+            .catch(err => console.error("Error fetching winners:", err));
+
+        // Modal Logic
+        const modal = document.getElementById('imageModal');
+        const modalImg = document.getElementById('modalImg');
+        const closeModal = document.querySelector('.close-modal');
+        const winnersContent = document.querySelector('.winners-content');
+
+        if (winnersContent) {
+            winnersContent.addEventListener('click', (e) => {
+                if (e.target.classList.contains('product-img')) {
+                    modal.style.display = 'block';
+                    modalImg.src = e.target.src;
                 }
             });
-        });
+        }
+
+        closeModal.onclick = () => {
+            modal.style.display = 'none';
+        };
+
+        window.onclick = (event) => {
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        };
+
+
+
     </script>
 </body>
 
